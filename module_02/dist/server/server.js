@@ -86,6 +86,79 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function _interopDefault(e) { return e && "object" == typeof e && "default" in e ? e.default : e; }
+Object.defineProperty(exports, "__esModule", { value: !0 });
+var React = _interopDefault(__webpack_require__(/*! react */ "react"));
+function AppContainer(e) { return AppContainer.warnAboutHMRDisabled && (AppContainer.warnAboutHMRDisabled = !0, console.error("React-Hot-Loader: misconfiguration detected, using production version in non-production environment."), console.error("React-Hot-Loader: Hot Module Replacement is not enabled.")), React.Children.only(e.children); }
+AppContainer.warnAboutHMRDisabled = !1;
+var hot = function e() { return e.shouldWrapWithAppContainer ? function (e) { return function (n) { return React.createElement(AppContainer, null, React.createElement(e, n)); }; } : function (e) { return e; }; };
+hot.shouldWrapWithAppContainer = !1;
+var areComponentsEqual = function (e, n) { return e === n; }, setConfig = function () { }, cold = function (e) { return e; }, configureComponent = function () { };
+exports.AppContainer = AppContainer, exports.hot = hot, exports.areComponentsEqual = areComponentsEqual, exports.setConfig = setConfig, exports.cold = cold, exports.configureComponent = configureComponent;
+
+
+/***/ }),
+
+/***/ "./node_modules/react-hot-loader/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/react-hot-loader/index.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+if (false) {}
+else if (false) {}
+else if (typeof window === 'undefined') {
+    // this is just server environment
+    module.exports = __webpack_require__(/*! ./dist/react-hot-loader.production.min.js */ "./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js");
+}
+else if (true) {
+    module.exports = __webpack_require__(/*! ./dist/react-hot-loader.production.min.js */ "./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js");
+    module.exports.AppContainer.warnAboutHMRDisabled = true;
+    module.exports.hot.shouldWrapWithAppContainer = true;
+}
+else { var jsFeaturesPresent, evalError, evalAllowed; }
+
+
+/***/ }),
+
+/***/ "./node_modules/react-hot-loader/root.js":
+/*!***********************************************!*\
+  !*** ./node_modules/react-hot-loader/root.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+if (true) {
+    var hot = __webpack_require__(/*! ./index */ "./node_modules/react-hot-loader/index.js").hot;
+    if (false) { var parent, cache; }
+    else {
+        fallbackHot();
+    }
+}
+else {}
+function fallbackHot() {
+    exports.hot = function (a) {
+        return a;
+    };
+}
+
+
+/***/ }),
+
 /***/ "./src/server/indexTemplate.js":
 /*!*************************************!*\
   !*** ./src/server/indexTemplate.js ***!
@@ -162,12 +235,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Header = void 0;
+var root_1 = __webpack_require__(/*! react-hot-loader/root */ "./node_modules/react-hot-loader/root.js");
 var React = __importStar(__webpack_require__(/*! react */ "react"));
-function Header() {
+function HeaderComponent() {
     return (React.createElement("header", null,
-        React.createElement("h1", null, "Hello React! 123")));
+        React.createElement("h1", null, "Hello React! 123"),
+        React.createElement("p", null, "Hello small asdf")));
 }
-exports.Header = Header;
+exports.Header = root_1.hot(HeaderComponent);
 
 
 /***/ }),
