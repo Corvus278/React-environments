@@ -1,3 +1,4 @@
+const { triggerAsyncId } = require('async_hooks')
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
@@ -26,6 +27,22 @@ module.exports = {
 			{
 				test: /\.[tj]sx?$/,
 				use: ['ts-loader']
+			},
+			{
+				test: /\.less$/,
+				use: [
+					{
+						loader: 'css-loader',
+						options: {
+							modules: {
+								mode: 'local',
+								localIdentName: '[name]__[local]--[hash:base64:5]',
+							},
+							onlyLocals: true,
+						}
+					},
+					'less-loader',
+				],
 			},
 		],
 	},
